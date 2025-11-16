@@ -11,7 +11,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
 import com.example.captionstudio.app.navigation.TopLevelDestinations
 import com.example.captionstudio.app.navigation.TopLevelDestinations.*
-import com.example.captionstudio.audiosource.StudioModeRoute
+import com.example.captionstudio.home.HomeScreenRoute
 import com.example.captionstudio.transcriptions.TranscriptionsRoute
 
 
@@ -32,8 +32,7 @@ class AppState(val navController: NavHostController) {
 
     val currentTopLevelDestination: TopLevelDestinations?
         @Composable get() = TopLevelDestinations.entries.firstOrNull {
-            currentNavDestination?.hasRoute(route = it.route) == true
-        }
+            currentNavDestination?.hasRoute(route = it.route) == true }
 
     fun navigateToTopLevelDestination(topLevelDestination: TopLevelDestinations) {
         val topLevelNavOptions = navOptions {
@@ -43,7 +42,7 @@ class AppState(val navController: NavHostController) {
         }
 
         when (topLevelDestination) {
-            AUDIO_SOURCE -> navController.navigate(StudioModeRoute, topLevelNavOptions)
+            HOME -> navController.navigate(HomeScreenRoute, topLevelNavOptions)
             TRANSCRIPTIONS -> navController.navigate(TranscriptionsRoute, topLevelNavOptions)
         }
     }

@@ -1,6 +1,5 @@
 package com.example.captionstudio.app
 
-import android.util.Log
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteScaffold
@@ -12,7 +11,7 @@ import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavDestination.Companion.hierarchy
 import com.example.captionstudio.app.navigation.CaptionStudioNavHost
 import com.example.captionstudio.app.navigation.TopLevelDestinations
-
+import com.example.captionstudio.home.AddTranscriptionDialog
 
 @Composable
 fun App(appState: AppState, modifier: Modifier = Modifier) {
@@ -20,6 +19,7 @@ fun App(appState: AppState, modifier: Modifier = Modifier) {
     val currentDestination = appState.currentNavDestination
     val showNavigationBar =
         TopLevelDestinations.entries.contains(appState.currentTopLevelDestination)
+    
     NavigationSuiteScaffold(
         layoutType = if (showNavigationBar) NavigationSuiteType.NavigationBar else NavigationSuiteType.None,
         navigationSuiteItems = {

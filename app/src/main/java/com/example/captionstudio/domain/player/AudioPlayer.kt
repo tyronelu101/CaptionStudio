@@ -11,5 +11,5 @@ interface AudioPlayer {
 
 interface AudioPlayerListener {
     fun onProgress(time: Int)
-    fun onAmplitude(amplitude: Float)
+    fun onFinish()
 }

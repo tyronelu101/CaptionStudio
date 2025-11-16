@@ -1,26 +1,32 @@
 [versions]
 activityCompose = "1.10.1"
-agp = "8.5.2"
+agp = "8.12.0"
 androidxHiltNavigationCompose = "1.2.0"
 coreKtx = "1.15.0"
 composeBom = "2025.03.01"
 daggerHilt = "2.56"
 espressoCore = "3.6.1"
+gaxGrpc = "2.70.0"
+googleCloudSpeech = "4.68.0"
 graphicsShapesVersion = "1.0.1"
+grpcOkhttp = "1.75.0"
+grpcProtobuf = "1.75.0"
+grpcStub = "1.75.0"
 hiltNavigationCompose = "1.2.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
-kotlin = "2.0.20"
+kotlin = "2.2.0"
 kotlinAndroid = "2.1.10"
 kotlinxSerializationJson = "1.7.1"
-ksp = "2.0.20-1.0.25"
+ksp = "2.2.20-2.0.3"
+librariesBom = "26.66.0"
 lifecycleRuntimeKtx = "2.8.7"
 navVersion = "2.8.9"
 navigationRuntimeKtx = "2.8.9"
-room = "2.6.1"
+room = "2.8.1"
 uiVersion = "1.7.8"
-roomCommon = "2.6.1"
 material3AdaptiveNavigationSuiteAndroid = "1.3.2"
+material3 = "1.4.0"
 
 [libraries]
 androidx-compose-ui-ui = { module = "androidx.compose.ui:ui", version.ref = "uiVersion" }
@@ -36,6 +42,7 @@ androidx-material-icons-extended = { module = "androidx.compose.material:materia
 androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navVersion" }
 androidx-navigation-runtime-ktx = { group = "androidx.navigation", name = "navigation-runtime-ktx", version.ref = "navigationRuntimeKtx" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
@@ -43,12 +50,18 @@ androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
-androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-material3 = { group = "androidx.compose.material3", name = "material3", version.ref="material3" }
+gax-grpc = { module = "com.google.api:gax-grpc", version.ref = "gaxGrpc" }
+google-cloud-speech = { module = "com.google.cloud:google-cloud-speech", version.ref = "googleCloudSpeech" }
 google-dagger-hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHilt" }
 google-dagger-hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "daggerHilt" }
+grpc-okhttp = { module = "io.grpc:grpc-okhttp", version.ref = "grpcOkhttp" }
+grpc-protobuf = { module = "io.grpc:grpc-protobuf", version.ref = "grpcProtobuf" }
+grpc-stub = { module = "io.grpc:grpc-stub", version.ref = "grpcStub" }
 jetbrains-kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-material3-adaptive-navigation-suite-android = { group = "androidx.compose.material3", name = "material3-adaptive-navigation-suite-android", version.ref = "material3AdaptiveNavigationSuiteAndroid" }
+libraries-bom = { module = "com.google.cloud:libraries-bom", version.ref = "librariesBom" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
