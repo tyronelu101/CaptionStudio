@@ -15,17 +15,17 @@ enum class TopLevelDestinations(
     @StringRes val contentDescription: Int,
     val route: KClass<*>
 ) {
-    HOME(
-        icon = CaptionStudioIcons.HOME,
-        label = R.string.audio_source,
-        contentDescription = R.string.audio_source,
-        route = HomeScreenRoute::class,
-    ),
-    TRANSCRIPTIONS(
-        icon = CaptionStudioIcons.TRANSCRIPTIONS,
-        label = R.string.transcriptions,
-        contentDescription = R.string.transcriptions,
-        route = TranscriptionsRoute::class,
-    ),
+//    HOME(
+//        icon = CaptionStudioIcons.HOME,
+//        label = R.string.audio_source,
+//        contentDescription = R.string.audio_source,
+//        route = HomeScreenRoute::class,
+//    ),
+//    TRANSCRIPTIONS(
+//        icon = CaptionStudioIcons.TRANSCRIPTIONS,
+//        label = R.string.transcriptions,
+//        contentDescription = R.string.transcriptions,
+//        route = TranscriptionsRoute::class,
+//    ),
 }
 

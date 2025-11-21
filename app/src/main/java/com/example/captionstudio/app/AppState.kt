@@ -41,9 +41,9 @@ class AppState(val navController: NavHostController) {
             }
         }
 
-        when (topLevelDestination) {
-            HOME -> navController.navigate(HomeScreenRoute, topLevelNavOptions)
-            TRANSCRIPTIONS -> navController.navigate(TranscriptionsRoute, topLevelNavOptions)
-        }
+//        when (topLevelDestination) {
+//            HOME -> navController.navigate(HomeScreenRoute, topLevelNavOptions)
+//            TRANSCRIPTIONS -> navController.navigate(TranscriptionsRoute, topLevelNavOptions)
+//        }
     }
 }

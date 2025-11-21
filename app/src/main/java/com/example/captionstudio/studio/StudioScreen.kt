@@ -158,8 +158,6 @@ private fun CaptionsList(captions: List<CaptionItemUI>, modifier: Modifier) {
             Text("No captions yet")
             Text("Press the record button to start")
         }
-
-
     } else {
         LazyColumn(
             modifier = modifier.padding(8.dp),
@@ -204,7 +202,6 @@ private fun CaptionItem(caption: CaptionItemUI, modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun CaptionItemPreview() {
-
 //    val words = "This is an example of a sentence.".split(" ").map {
 //        val confidence = 0.5f + Math.random().toFloat() * 0.5
 //        Word(0L, it, confidence = confidence.toFloat(), 0L, 0L)

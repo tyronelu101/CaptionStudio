@@ -1,5 +1,7 @@
 package com.example.captionstudio.di
 
+import com.example.captionstudio.domain.export.CaptionExporter
+import com.example.captionstudio.domain.export.LocalCaptionExporter
 import com.example.captionstudio.domain.transcriber.GoogleTranscriber
 import com.example.captionstudio.domain.transcriber.Transcriber
 import dagger.Binds
@@ -13,4 +15,7 @@ import dagger.hilt.android.components.ViewModelComponent
 abstract class AppModule {
     @Binds
     abstract fun bindTranscriber(transcriber: GoogleTranscriber): Transcriber
+
+    @Binds
+    abstract fun bindExporter(exporter: LocalCaptionExporter): CaptionExporter
 }

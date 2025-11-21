@@ -1,5 +1,10 @@
 package com.example.captionstudio.home
 
+import android.content.Intent
+import android.provider.DocumentsContract
+import android.util.Log
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -42,7 +47,6 @@ import com.example.captionstudio.app.ui.CaptionStudioIcons
 import com.example.captionstudio.domain.models.Transcription
 import kotlinx.serialization.Serializable
 import java.util.Date
-import kotlin.math.exp
 
 @Serializable
 data object HomeScreenRoute
@@ -59,6 +63,16 @@ fun HomeScreen(
     val saveResult by viewModel.saveResult.collectAsState()
     val transcriptions by viewModel.transcriptions.collectAsState()
 
+    var captionId by remember { mutableStateOf<Long??>(null) }
+    val picker =
+        rememberLauncherForActivityResult(ActivityResultContracts.OpenDocumentTree()) { uri ->
+            uri?.let {uri ->
+                captionId?.let { captionId ->
+                    viewModel.export(captionId, uri.toString())
+                }
+            }
+
+        }
     LaunchedEffect(saveResult) {
         saveResult?.let {
             if (it is Result.Success<Transcription>) {
@@ -67,11 +81,13 @@ fun HomeScreen(
             viewModel.reset()
         }
     }
-
     HomeScreenContent(
         transcriptions,
         onTranscriptionItemClick,
-        {},
+        onExport = { id ->
+            captionId = id
+            picker.launch(null)
+        },
         { id -> viewModel.deleteTranscription(id) },
         onConfirmDialog = {
             val transcription =
@@ -142,7 +158,7 @@ private fun TranscriptionsList(
             TranscriptionItem(
                 transcription,
                 onTranscriptionItemClick,
-                onExport = {},
+                onExport = onExport,
                 onDelete = onDelete,
                 modifier = modifier
             )
@@ -206,7 +222,10 @@ private fun TranscriptionItem(
                 ) {
                     DropdownMenuItem(
                         text = { Text("Export") },
-                        onClick = { expanded = false }
+                        onClick = {
+                            onExport(transcription.id)
+                            expanded = false
+                        }
                     )
                     DropdownMenuItem(
                         text = { Text("Delete") },
